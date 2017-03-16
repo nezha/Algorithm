@@ -28,7 +28,6 @@ public class algorithm1 {
     private static boolean fensi(int[] a) {
         if (a.length < 7 || a==null)
             return false;
-
         int i = 0, j = a.length - 1;
         int i2=0,j2=0;
         long p = a[i], q = a[j];

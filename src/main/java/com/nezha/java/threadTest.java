@@ -1,5 +1,9 @@
 package com.nezha.java;
 
+import java.util.concurrent.Callable;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.FutureTask;
+
 /**
  * Created by 123 on 2017/3/15.
  */
@@ -55,17 +59,7 @@ class Thread2 implements Runnable {
         this.name = name;
     }
 
-    /**
-     * When an object implementing interface <code>Runnable</code> is used
-     * to create a thread, starting the thread causes the object's
-     * <code>run</code> method to be called in that separately executing
-     * thread.
-     * <p>
-     * The general contract of the method <code>run</code> is that it may
-     * take any action whatsoever.
-     *
-     * @see Thread#run()
-     */
+
     public void run() {
         for (int i = 0; i < 5; i++) {
             System.out.println(Thread.currentThread().getName() + "运行  :  " + count--);
@@ -78,6 +72,39 @@ class Thread2 implements Runnable {
     }
 }
 
+class MyCallableThread implements Callable<Integer>{
+    public static void main(String[] args) {
+        MyCallableThread mct = new MyCallableThread();
+        FutureTask<Integer> ft = new FutureTask<Integer>(mct);
+        for(int i = 0;i < 100;i++)
+        {
+            System.out.println(Thread.currentThread().getName()+" 的循环变量i的值"+i);
+            if(i==20)
+            {
+                new Thread(ft,"有返回值的线程").start();
+            }
+        }
+        try
+        {
+            System.out.println("子线程的返回值："+ft.get());
+        } catch (InterruptedException e)
+        {
+            e.printStackTrace();
+        } catch (ExecutionException e)
+        {
+            e.printStackTrace();
+        }
+    }
+
+        public Integer call() throws Exception {
+        int i = 0;
+        for(;i<100;i++)
+        {
+            System.out.println(Thread.currentThread().getName()+" "+i);
+        }
+        return i;
+    }
+}
 
 class MyThreadPrinter2 implements Runnable {
 
