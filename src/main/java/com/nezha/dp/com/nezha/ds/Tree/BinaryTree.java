@@ -1,9 +1,6 @@
 package com.nezha.dp.com.nezha.ds.Tree;
 
-import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.Map;
-import java.util.Stack;
+import java.util.*;
 
 /**
  * Created by 123 on 2017/3/17.
@@ -302,6 +299,38 @@ public class BinaryTree {
         return numLeft + numRight;
     }
 
+    /**
+     * 递归的方式遍历所有路径
+     */
+    List<String> res = new ArrayList<String>();
+
+    public List<String> binaryTreePaths(Node root) {
+        if(root != null) findPaths(root,String.valueOf(root.data));
+        return res;
+    }
+    private void findPaths(Node n, String path){
+
+        if(n.left != null) findPaths(n.left, path+"->"+n.left.data);
+        if(n.right != null) findPaths(n.right, path+"->"+n.right.data);
+        if(n.left == null && n.right == null) res.add(path);
+    }
+
+    /**
+     * 递归方式求加权路径和
+     */
+    List<Integer> weightPathsSum = new ArrayList<Integer>();
+    public List<Integer> binaryTreeWeightPathsSum(Node root) {
+        if(root != null) findPathsSum(root,1,0);
+        return weightPathsSum;
+    }
+
+    public void findPathsSum(Node node,int height,int data){
+        if (node.left != null) findPathsSum(node.left,height+1,node.data+ data);
+        if (node.right != null) findPathsSum(node.right,height+1,node.data + data);
+        if (node.left == null && node.right == null) weightPathsSum.add(data+node.data);
+    }
+
+
 
     /**
      * 读取数据
@@ -349,6 +378,13 @@ public class BinaryTree {
         System.out.println("\n-----二叉树中层次遍历-----\n");
         bTree.levelIterator(bTree.root);
         System.out.println();
+        System.out.println("\n-----二叉树遍历路径-----\n");
+        List<String> treePath = bTree.binaryTreePaths(bTree.root);
+        System.out.println("二叉树遍历路径"+treePath);
+
+        System.out.println("\n-----递归方式求加权路径和-----\n");
+        List<Integer> PathsSum = bTree.binaryTreeWeightPathsSum(bTree.root);
+        System.out.println("二叉树加权路径和"+PathsSum.toString());
     }
 
 }

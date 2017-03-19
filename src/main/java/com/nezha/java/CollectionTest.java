@@ -20,6 +20,9 @@ public class CollectionTest {
         hashMap1.put(null,null);
         Collections.synchronizedMap(hashMap1);
         ConcurrentHashMap<String,String> concurrentHashMap = new ConcurrentHashMap<String, String>();
+        LinkedHashMap<String,Integer> hashMap2 = new LinkedHashMap<String, Integer>(16, 0.75f,true);
+
+
 
 
     }
