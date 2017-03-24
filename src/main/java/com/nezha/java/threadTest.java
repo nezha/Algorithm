@@ -15,6 +15,8 @@ public class threadTest {
         mTh11.setPriority(Thread.MAX_PRIORITY);
         mTh11.start();
         mTh12.start();
+        mTh11.run();
+        mTh11.run();
 //        Thread2 mTh2 = new Thread2();
 //        new Thread(mTh2, "C").start();
 //        new Thread(mTh2, "D").start();
