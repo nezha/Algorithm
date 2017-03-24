@@ -14,22 +14,6 @@ import java.util.concurrent.LinkedBlockingQueue;
 public class test {
     public final int COUNT = 10;
     public static void  main(String[] args){
-//        BlockingQueue<String> test = new ArrayBlockingQueue<String>(10);
-//        try {
-//            test.put("1");
-//            test.put("2");
-//            test.take();
-//            test.take();
-//        }catch (InterruptedException e){
-//            e.printStackTrace();
-//        }
-//        Object o1 = new Object();
-//        System.out.println("o1 hash"+o1.hashCode());
-//        int h = o1.hashCode();
-//        System.out.println("h >>> 16" + (8 >>> 3));
-//        int b = h ^ (h >>> 16);
-//        System.out.println(b);
-
 
     }
 
@@ -69,3 +53,4 @@ class shapeA extends shape{
         }
     }
 }
+

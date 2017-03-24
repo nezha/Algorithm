@@ -3,12 +3,15 @@ package com.nezha.dp.Singleton;
 /**
  * Created by 123 on 2017/3/14.
  */
-public class test {
-    public static void main(String[] args){
-        SingletonInnerclass s1 = SingletonInnerclass.getInstance();
-        System.out.printf("" + s1.hashCode());
-        SingletonInnerclass s2 = SingletonInnerclass.getInstance();
-        System.out.printf("" + s2.hashCode());
+public class test{
+    //这里就是需要存放的单例资源
+    public test(){
+
     }
 
+    public static void main(String[] args){
+        test test1 = SingletonEnum.INSTANCE.getInstance();
+        test test3 = SingletonEnum.INSTANCE.getInstance();
+        System.out.println(test1==test3);
+    }
 }
