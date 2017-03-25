@@ -3,23 +3,32 @@ package com.nezha.dp.Singleton;
 /**
  * Created by nezha on 2017/3/24.
  */
-public class SingletonEnum {
-    class Resource{
-        //这里就是需要存放的单例资源
-    }
-    enum Singleton{
+
+public enum SingletonEnum{
         INSTANCE;
-        private Resource instance;
-        private Singleton(){
-            instance = new Resource();
+        private Resouce instance;
+        private SingletonEnum(){
+            instance = new Resouce();
         }
+}
 
+class EnumSingleton{
+    private EnumSingleton(){}
+    public static EnumSingleton getInstance(){
+        return Singleton.INSTANCE.getInstance();
     }
 
-    public static void main(String[] args) {
-        Singleton s=Singleton.INSTANCE;
-        Singleton s2=Singleton.INSTANCE;
-        System.out.println(s==s2);
+    private static enum Singleton{
+        INSTANCE;
+
+        private EnumSingleton singleton;
+        //JVM会保证此方法绝对只调用一次
+        private Singleton(){
+            singleton = new EnumSingleton();
+        }
+        public EnumSingleton getInstance(){
+            return singleton;
+        }
     }
 }
 
