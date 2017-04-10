@@ -24,7 +24,7 @@ class classB extends classA{
 
 
     public static void main(String[] args){
-        
+
     }
 }
 
