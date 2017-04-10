@@ -1,4 +1,4 @@
-package com.nezha.dp.com.nezha.ds.List;
+package com.nezha.dp.ds.List;
 
 import org.junit.Test;
 

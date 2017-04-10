@@ -1,4 +1,4 @@
-package com.nezha.dp.com.nezha.ds.StackQueue;
+package com.nezha.dp.ds.StackQueue;
 
 import java.util.Stack;
 

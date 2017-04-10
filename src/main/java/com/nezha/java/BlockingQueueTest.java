@@ -29,7 +29,6 @@ public class BlockingQueueTest {
                     System.out.println(Thread.currentThread().getName()+" produce "+info);
                     Thread.sleep(50);
                 } catch (InterruptedException e) {
-                    // TODO Auto-generated catch block
                     e.printStackTrace();
                 }
             }
@@ -53,7 +52,6 @@ public class BlockingQueueTest {
                     System.out.println(Thread.currentThread().getName()+" consumer "+info);
                     Thread.sleep(50);
                 } catch (InterruptedException e) {
-                    // TODO Auto-generated catch block
                     e.printStackTrace();
                 }
             }
@@ -79,7 +77,6 @@ public class BlockingQueueTest {
         try {
             Thread.sleep(1000);
         } catch (InterruptedException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         }
         producer.shutDown();

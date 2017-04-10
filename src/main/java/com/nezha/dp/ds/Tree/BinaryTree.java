@@ -1,4 +1,4 @@
-package com.nezha.dp.com.nezha.ds.Tree;
+package com.nezha.dp.ds.Tree;
 
 import java.util.*;
 
