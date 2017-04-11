@@ -244,12 +244,14 @@ public class BinaryTree {
     }
     int getMin(Node root){
         if(root == null){
-            return Integer.MAX_VALUE;
+            return 0;
         }
-        if(root.left == null&&root.right == null){
-            return 1;
+        int left = getMin(root.left);
+        int right = getMin(root.right);
+        if(root.left == null || root.right == null){
+            return left + right + 1;
         }
-        return Math.min(getMin(root.left),getMin(root.right)) + 1;
+        return Math.min(left,right) + 1;
     }
 
     /**
