@@ -12,7 +12,6 @@ public class Daemon {
     }
 
     static class DaemonRunner implements Runnable {
-        @Override
         public void run() {
             try {
                 SleepUtils.second(100);

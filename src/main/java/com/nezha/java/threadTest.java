@@ -74,16 +74,17 @@ class Thread2 implements Runnable {
     }
 }
 
-class MyCallableThread implements Callable<Integer>{
+class MyCallableTest implements Callable<Integer>{
     public static void main(String[] args) {
-        MyCallableThread mct = new MyCallableThread();
+        MyCallableTest mct = new MyCallableTest();
         FutureTask<Integer> ft = new FutureTask<Integer>(mct);
         for(int i = 0;i < 100;i++)
         {
-            System.out.println(Thread.currentThread().getName()+" 的循环变量i的值"+i);
             if(i==20)
             {
-                new Thread(ft,"有返回值的线程").start();
+                System.out.println(Thread.currentThread().getName()+" 的循环变量i的值"+i);
+                ft.run();
+//                new Thread(ft,"有返回值的线程").start();
             }
         }
         try
@@ -108,13 +109,13 @@ class MyCallableThread implements Callable<Integer>{
     }
 }
 
-class MyThreadPrinter2 implements Runnable {
+class RunnableTest2 implements Runnable {
 
     private String name;
     private final Object prev;
     private final Object self;
 
-    private MyThreadPrinter2(String name, final Object prev, final Object self) {
+    private RunnableTest2(String name, final Object prev, final Object self) {
         this.name = name;
         this.prev = prev;
         this.self = self;
@@ -143,9 +144,9 @@ class MyThreadPrinter2 implements Runnable {
         final Object a = new Object();
         final Object b = new Object();
         final Object c = new Object();
-        MyThreadPrinter2 pa = new MyThreadPrinter2("A", c, a);
-        MyThreadPrinter2 pb = new MyThreadPrinter2("B", a, b);
-        MyThreadPrinter2 pc = new MyThreadPrinter2("C", b, c);
+        RunnableTest2 pa = new RunnableTest2("A", c, a);
+        RunnableTest2 pb = new RunnableTest2("B", a, b);
+        RunnableTest2 pc = new RunnableTest2("C", b, c);
 
 
         new Thread(pa).start();
