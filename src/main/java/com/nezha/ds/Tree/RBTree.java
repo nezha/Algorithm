@@ -1,4 +1,4 @@
-package com.nezha.dp.ds.Tree;
+package com.nezha.ds.Tree;
 
 /**
  * Java 语言: 红黑树

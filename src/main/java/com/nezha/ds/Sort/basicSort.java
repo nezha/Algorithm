@@ -1,4 +1,4 @@
-package com.nezha.dp.ds.Sort;
+package com.nezha.ds.Sort;
 
 import java.util.Arrays;
 
